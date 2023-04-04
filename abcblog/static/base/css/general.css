@@ -1,0 +1,117 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+    list-style: none;
+    font-family: 'Roboto', sans-serif;
+}
+
+body {
+    background-color: #f3f5f9;
+}
+
+.line {
+    line-height: 1.6;
+}
+
+.content {
+    display: flex;
+    flex-flow: column nowrap;
+    margin: 0 auto;
+    width: 100%;
+    max-width: 1920px;
+}
+
+/* Aquí comienza la sección */
+.section {
+    min-height: calc(100vh - 185px);
+}
+
+/* Aquí termina la sección */
+
+/* Imagen del autor y de perfil */
+.img-author,
+.img-profile {
+    width: 58px;
+    margin-top: 3px;
+    border-radius: 3px;
+    height: 43px;
+}
+
+.nav .loguot,
+.login,
+.create,
+.btn-edit-profile,
+.btn-edit-profile-2,
+.btn-admin {
+    color: #FFF;
+    font-size: 0.7em;
+    text-transform: uppercase;
+    padding: 1em;
+    letter-spacing: 2px;
+    border-radius: 2px;
+    background-color: #1d448e;
+}
+
+
+.login{
+    margin-right: 3px !important;
+}
+
+.text-primary {
+    text-align: center;
+    font-size: 2.1em;
+    margin: 1%;
+}
+
+
+@media (max-width: 1440px) {
+
+    .section {
+        min-height: calc(100vh - 163px);
+    }
+     .btn-edit-profile {
+        width: 17%;
+    }
+
+    .login {
+        margin-right: 8px;
+    }
+
+}
+
+@media (min-width: 1366px) and (max-width: 1399px) {
+    .text-primary {
+        font-size: 1.7em;
+    }
+}
+
+@media (min-width: 1280px) and (max-width: 1365px) {
+
+    .section {
+        min-height: calc(100vh - 160px);
+    }
+
+    .text-primary{
+        font-size: 1.6em;
+    }
+
+     .btn-edit-profile {
+        width: 19%;
+        margin-top: 15px;
+    }
+}
+
+/* 1024px * 600 */
+
+@media (min-width: 1024px) and (max-width: 1279px) {
+    .text-primary {
+        font-size: 1.5em;
+    }
+
+    .section {
+        min-height: calc(100vh - 151px);
+    }
+}
+

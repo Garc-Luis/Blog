@@ -1,0 +1,36 @@
+<html>
+
+<head>
+    <!--  Cargar archivos estáticos  -->
+    {% load static %}
+
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
+
+    <link href="{% static 'base/css/general.css' %}" rel="stylesheet" type="text/css"/>
+    <link href="{% static 'base/css/menu.css' %}" rel="stylesheet" type="text/css"/>
+    <link href="{% static 'base/css/footer.css' %}" rel="stylesheet" type="text/css"/>
+
+    <!-- Bloque css cambiante -->
+    {% block css %} {% endblock css %}
+
+    <title>{% block title %} {% endblock title %}</title>
+</head>
+
+<body>
+<div class="content">
+    <!-- Incluir menú -->
+    {% include 'base/menu.html' %}
+
+    <section class="section">
+        <!-- Contenido cambiante -->
+        {% block content %} {% endblock content %}
+    </section>
+
+    <!-- Incluir footer -->
+    {% include 'base/footer.html' %}
+</div>
+</body>
+</html>

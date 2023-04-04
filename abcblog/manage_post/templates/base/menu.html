@@ -1,0 +1,61 @@
+<!-- Cargar archivos estáticos -->
+{% load static %}
+
+<header class="header">
+    <div class="menu">
+        <div class="logo">
+            <!--Logo-->
+            <a href="{% url 'index' %}"><img src="{% static 'base/image/Logo/abc_company.png' %}" alt="Logo"></a>
+        </div>
+        <nav class="nav">
+            {% if request.user.is_authenticated %}
+            <ul class="profile">
+
+                <li>
+                    <!-- Imagen del usuario -->
+                    {% if request.user.profile %}
+                    <img src="{{ request.user.profile.photo.url }}" alt="Profile"
+                         class="img-profile">
+                    {% else %}
+                    <img src="{% static 'base/image/Default/default-user.png' %}" alt="Profile"
+                         class="img-profile">
+                    {% endif %}
+                    <!-- Nombre completo del usuario -->
+                        <span class="name-user">{{ request.user.full_name }}</span>
+                </li>
+
+                <!-- Botón de editar perfil -->
+                <li>
+                    <a href="{% url 'edit_user' %}" class="btn-edit-profile">Editar perfil</a>
+                </li>
+                <!-- Verificar si el usuario es staff -->
+                {% if request.user.is_staff == True %}
+                <li>
+                    <a href="{% url 'admin:index' %}" class="btn-admin">Ir al admin</a>
+                </li>
+                {% endif %}
+                <!-- Botón de salir -->
+                <li>
+                    <a href="{% url 'logout' %}" class="loguot">Salir</a>
+                </li>
+            </ul>
+            {% else %}
+            <ul>
+                <li>
+                    {% url 'login' as url_login %}
+                    {% url 'register' as url_register %}
+
+                    {% if request.path == url_register %}
+                    <a href="{% url 'login' %}" class="login">Iniciar sesión</a>
+                    {% elif request.path == url_login %}
+                    <a href="{% url 'register' %}" class="create">Crear cuenta</a>
+                    {% else %}
+                    <a href="{% url 'login' %}" class="login">Iniciar sesión</a>
+                    <a href="{% url 'register' %}" class="create">Crear cuenta</a>
+                    {% endif %}
+                </li>
+            </ul>
+            {% endif %}
+        </nav>
+    </div>
+</header>

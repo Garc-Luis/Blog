@@ -1,0 +1,145 @@
+/* Agregar comentarios */
+
+/* Comentarios */
+
+.form-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 30px;
+}
+
+.form-general {
+    display: flex;
+    width: 30%;
+    background: #FFFF;
+    box-shadow: 0px 1px 4px grey;
+    flex-direction: column;
+    align-items: center;
+}
+
+.form-content .form-general.comments {
+    display: flex;
+    width: 47%;
+    flex-direction: column;
+    margin-bottom: 4%;
+}
+
+.form-content .form-general.comments ul{
+    width: 70%;
+    margin-top: 20px;
+    padding: 10px;
+}
+
+.form-content .form-general #id_value {
+    display: flex;
+    width: 19%;
+    margin-top: 5px;
+    margin-bottom: 15px;
+    border-radius: 4px;
+    border: 1px solid rgb(160, 146, 146);
+    padding: 1%;
+}
+
+
+.form-content .form-general #id_description {
+    width: 100%;
+    padding: 15px;
+    font-size: 0.9em;
+    border-radius: 4px;
+    border: 1px solid rgb(160, 146, 146);
+    outline: none;
+    background-color: transparent;
+}
+
+.form-content .form-general .btn-submit {
+    display: flex;
+    padding: 1.2%;
+    width: 20%;
+    cursor: pointer;
+    font-size: 1.2em !important;
+    justify-content: center;
+    color: #FFF;
+    background: #1d448e;
+    margin-left: 48% !important;
+    margin-bottom: 30px;
+    border: none;
+    border-radius: 2px;
+}
+
+
+
+
+/* Visualización de comentarios */
+
+.comments-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+
+.comments-content .comments-body {
+    width: 48%;
+    padding: 10px;
+    background-color: rgba(198, 198, 198, 0.5);
+    border-radius: 5px;
+    color: black;
+    align-self: center;
+}
+
+
+.comments-content .comments-body .comment-head {
+    display: flex;
+    width: 50%;
+    font-weight: bold;
+    margin-top: 7px;
+    margin-bottom: 20px;
+}
+
+.comments-content hr {
+    border-top: 2px solid #c6ccd1;
+    width: 50%;
+    margin: 10px auto;
+    text-decoration: unset;
+}
+
+.comments-content .comments-body .comment-description {
+    text-align: justify;
+    margin-bottom: 20px;
+}
+
+/* 1440px * 900 */
+
+@media (max-width: 1440px) {
+    .form-content .form-general.comments{
+    width: 60%;
+    }
+
+    .comments-content .comments-body {
+        width: 62%;
+    }
+
+    .comments-content hr {
+        width: 63%;
+    }
+
+}
+
+
+/* 1024px * 600 */
+
+@media (min-width: 1024px) and (max-width: 1279px) {
+
+    .form-content .form-general.comments {
+        width: 65%;
+    }
+
+    .comments-content .comments-body {
+        width: 66%;
+    }
+
+    .comments-content hr {
+        width: 69%;
+    }
+}
