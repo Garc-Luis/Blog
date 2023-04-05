@@ -1,35 +1,51 @@
-{% extends 'base/base.html' %}
+<html>
 
-<!-- Cargar archivos estaticos -->
-{% load static %}
+<head>
+    <!-- Cargar archivos estaticos -->
+    {% load static %}
 
-{% block css %}
-<link href="{% static 'user/css/style_user.css' %}" rel="stylesheet" type="text/css">
-{% endblock css %}
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
 
-{% block title %} Registro {% endblock title %}
+    <link href="{% static 'base/css/general.css' %}" rel="stylesheet" type="text/css" />
+    <link href="{% static 'base/css/menu.css' %}" rel="stylesheet" type="text/css" />
+    <link href="{% static 'base/css/footer.css' %}" rel="stylesheet" type="text/css" />
 
-{% block content %}
+    <!-- Css de user -->
+    <link href="{% static 'user/css/style_user.css' %}" rel="stylesheet" type="text/css" />
 
-{% if user.is_authenticated %}
-<h2 class="alert-session">Usted ya ha iniciado sesión, <a href="#">Clic aquí</a> para ir a la página
-    principal
-</h2>
-{% else %}
-<hr>
-<div class="form-content">
-    <form method="POST" class="form-general">
-        <h2>Crear Cuenta</h2>
-        <!-- Agregar token -->
-        {% csrf_token %}
-        <table>
-            <!-- Obtener formulario  -->
-            {{ form.as_table }}
-        </table>
+    <title>Registro</title>
 
-        <!-- Asignar valor al input -->
-        <input type="submit" value="Registrarse" class="btn-submit">
-    </form>
-</div>
-{% endif %}
-{% endblock content %}
+</head>
+
+<body>
+    <div class="content">
+
+        <!-- incluir menu -->
+        {% include 'base/menu.html' %}
+        <section class="section">
+            <h2 class="alert-session">Usted ya ha iniciado sesión, <a href="#">Clic aquí</a> para ir a la página principal</h2>
+            <hr>
+            <div class="form-content">
+                <form method="POST" class="form-general">
+                    <h2>Crear Cuenta</h2>
+                    <!-- Agregar token -->
+                    {% csrf_token %}
+                    <table>
+                        <!-- Obtener formulario  -->
+                        {{ form.as_table }}
+                    </table>
+
+                    <!-- Asignar valor al input -->
+                    <input type="submit" value="Registrarse" class="btn-submit">
+                </form>
+            </div>
+        </section>
+
+        <!-- incluir footer -->
+        {% include 'base/footer.html'%}
+    </div>
+</body>
+</html>

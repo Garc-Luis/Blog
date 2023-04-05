@@ -4,6 +4,6 @@ from user import views
 
 urlpatterns = [
     path('login/', views.login),
-    path('register/', views.register)
+    path('add/', views.SignUpViews.as_view(), name='register')
 
 ]
