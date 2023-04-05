@@ -1,0 +1,35 @@
+{% extends 'base/base.html' %}
+
+<!-- Cargar archivos estaticos -->
+{% load static %}
+
+{% block css %}
+<link href="{% static 'user/css/style_user.css' %}" rel="stylesheet" type="text/css">
+{% endblock css %}
+
+{% block title %} Registro {% endblock title %}
+
+{% block content %}
+
+{% if user.is_authenticated %}
+<h2 class="alert-session">Usted ya ha iniciado sesión, <a href="#">Clic aquí</a> para ir a la página
+    principal
+</h2>
+{% else %}
+<hr>
+<div class="form-content">
+    <form method="POST" class="form-general">
+        <h2>Crear Cuenta</h2>
+        <!-- Agregar token -->
+        {% csrf_token %}
+        <table>
+            <!-- Obtener formulario  -->
+            {{ form.as_table }}
+        </table>
+
+        <!-- Asignar valor al input -->
+        <input type="submit" value="Registrarse" class="btn-submit">
+    </form>
+</div>
+{% endif %}
+{% endblock content %}

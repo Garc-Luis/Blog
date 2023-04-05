@@ -1,0 +1,37 @@
+<!-- Heredar de base -->
+{% extends 'base/base.html' %}
+
+<!-- Cargar archivos estaticos -->
+{% load static%}
+
+{% block css %}
+<link href="{% static 'user/css/style_user.css' %}" rel="stylesheet" type="text/css">
+{% endblock css%}
+
+{% block title %} Ingresar {% endblock title %}
+
+{% block content %}
+
+{% if user.is_authenticated %}
+<h2 class="alert-session">Usted ya ha iniciado sesión, <a href="#">Clic aquí</a> para ir a la página
+    principal
+</h2>
+{% else %}
+<hr>
+<div class="form-content">
+    <form method="POST" class="form-general">
+        <h2>Iniciar sesión</h2>
+        <!-- Agregar token -->
+        {% csrf_token %}
+        <table>
+            <!-- Obtener formulario  -->
+            {{ form.as_table }}
+        </table>
+
+        <!-- Redirigir a olvidar la contraseña -->
+        <a href="{% url 'password_reset' %}" class="reset_password">¿Has olvidado la contraseña?</a>
+        <input type="submit" value="Ingresar" class="btn-submit input-login">
+    </form>
+</div>
+{% endif %}
+{% endblock content %}
